@@ -262,13 +262,13 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Address" EntitySet="Addresses" />
           </AssociationSet>
-          <AssociationSet Name="FK_CustomerContactDetail" Association="SalesModel.FK_CustomerContactDetail">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="ContactDetail" EntitySet="ContactDetails" />
-          </AssociationSet>
           <AssociationSet Name="CategoryProduct" Association="SalesModel.CategoryProduct">
             <End Role="Category" EntitySet="Categories" />
             <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerContactDetail" Association="SalesModel.CustomerContactDetail">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="ContactDetail" EntitySet="ContactDetails" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Customer">
@@ -283,7 +283,7 @@
           <Property Type="Int32" Name="CustomerTypeId" Nullable="false" />
           <NavigationProperty Name="Addresses" Relationship="SalesModel.CustomerAddress" FromRole="Customer" ToRole="Address" />
           <Property Type="String" Name="Address" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="ContactDetails" Relationship="SalesModel.FK_CustomerContactDetail" FromRole="Customer" ToRole="ContactDetail" />
+          <NavigationProperty Name="ContactDetail" Relationship="SalesModel.CustomerContactDetail" FromRole="Customer" ToRole="ContactDetail" />
         </EntityType>
         <EnumType Name="OrderSourceType">
           <Member Name="Online" Value="1" />
@@ -403,7 +403,7 @@
           <Property Type="String" Name="LinkedIn" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Type="String" Name="SkypeId" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Type="Int32" Name="CustomerId" Nullable="false" />
-          <NavigationProperty Name="Customer1" Relationship="SalesModel.FK_CustomerContactDetail" FromRole="ContactDetail" ToRole="Customer" />
+          <NavigationProperty Name="Customer" Relationship="SalesModel.CustomerContactDetail" FromRole="ContactDetail" ToRole="Customer" />
         </EntityType>
         <EntityType Name="Address">
           <Key>
@@ -429,21 +429,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CustomerContactDetail">
-          <End Type="SalesModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="SalesModel.ContactDetail" Role="ContactDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="CustomerId" />
-            </Principal>
-            <Dependent Role="ContactDetail">
-              <PropertyRef Name="CustomerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="CategoryProduct">
           <End Type="SalesModel.Category" Role="Category" Multiplicity="*" />
           <End Type="SalesModel.Product" Role="Product" Multiplicity="*" />
+        </Association>
+        <Association Name="CustomerContactDetail">
+          <End Type="SalesModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="SalesModel.ContactDetail" Role="ContactDetail" Multiplicity="0..1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>

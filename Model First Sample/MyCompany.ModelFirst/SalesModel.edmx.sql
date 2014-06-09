@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 06/09/2014 13:48:07
+-- Date Created: 06/09/2014 13:54:49
 -- Generated from EDMX file: C:\Users\WB122\Documents\GitHub\CCTB-345\Model First Sample\MyCompany.ModelFirst\SalesModel.edmx
 -- --------------------------------------------------
 
@@ -140,7 +140,8 @@ CREATE TABLE [dbo].[ContactDetails] (
     [FaceBook] nvarchar(max)  NOT NULL,
     [LinkedIn] nvarchar(max)  NOT NULL,
     [SkypeId] nvarchar(max)  NOT NULL,
-    [CustomerId] int  NOT NULL
+    [CustomerId] int  NOT NULL,
+    [Customer_CustomerId] int  NOT NULL
 );
 GO
 
@@ -294,20 +295,6 @@ ON [dbo].[Addresses]
     ([CustomerCustomerId]);
 GO
 
--- Creating foreign key on [CustomerId] in table 'ContactDetails'
-ALTER TABLE [dbo].[ContactDetails]
-ADD CONSTRAINT [FK_CustomerContactDetail]
-    FOREIGN KEY ([CustomerId])
-    REFERENCES [dbo].[Customers]
-        ([CustomerId])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_CustomerContactDetail'
-CREATE INDEX [IX_FK_CustomerContactDetail]
-ON [dbo].[ContactDetails]
-    ([CustomerId]);
-GO
-
 -- Creating foreign key on [Categories_CategoryId] in table 'CategoryProduct'
 ALTER TABLE [dbo].[CategoryProduct]
 ADD CONSTRAINT [FK_CategoryProduct_Category]
@@ -329,6 +316,20 @@ ADD CONSTRAINT [FK_CategoryProduct_Product]
 CREATE INDEX [IX_FK_CategoryProduct_Product]
 ON [dbo].[CategoryProduct]
     ([Products_ProductId]);
+GO
+
+-- Creating foreign key on [Customer_CustomerId] in table 'ContactDetails'
+ALTER TABLE [dbo].[ContactDetails]
+ADD CONSTRAINT [FK_CustomerContactDetail]
+    FOREIGN KEY ([Customer_CustomerId])
+    REFERENCES [dbo].[Customers]
+        ([CustomerId])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CustomerContactDetail'
+CREATE INDEX [IX_FK_CustomerContactDetail]
+ON [dbo].[ContactDetails]
+    ([Customer_CustomerId]);
 GO
 
 -- --------------------------------------------------

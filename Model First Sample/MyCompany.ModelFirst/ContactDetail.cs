@@ -24,6 +24,6 @@ namespace MyCompany.ModelFirst
         public string SkypeId { get; set; }
         public int CustomerId { get; set; }
     
-        public virtual Customer Customer1 { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

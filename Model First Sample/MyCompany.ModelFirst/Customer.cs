@@ -18,7 +18,6 @@ namespace MyCompany.ModelFirst
         {
             this.Orders = new HashSet<Order>();
             this.Addresses = new HashSet<Address>();
-            this.ContactDetails = new HashSet<ContactDetail>();
         }
     
         public int CustomerId { get; set; }
@@ -30,6 +29,6 @@ namespace MyCompany.ModelFirst
         public virtual ICollection<Order> Orders { get; set; }
         public virtual CustomerType CustomerType { get; set; }
         public virtual ICollection<Address> Addresses { get; set; }
-        public virtual ICollection<ContactDetail> ContactDetails { get; set; }
+        public virtual ContactDetail ContactDetail { get; set; }
     }
 }
