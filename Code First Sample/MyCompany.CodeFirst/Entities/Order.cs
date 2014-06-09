@@ -16,6 +16,8 @@ namespace MyCompany.CodeFirst.Entities
 
         //Navigation propertiies
         public virtual Customer Customer { get; set; }
+        public virtual ICollection<LineItem> LineItems { get; set; }
+
 
     }
 }
