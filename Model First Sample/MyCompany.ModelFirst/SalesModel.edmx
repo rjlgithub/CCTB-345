@@ -35,10 +35,6 @@
       <End Role="Customer" EntitySet="Customers" />
       <End Role="Address" EntitySet="Addresses" />
     </AssociationSet>
-    <AssociationSet Name="FK_CustomerContactDetail" Association="SalesModel.Store.FK_CustomerContactDetail">
-      <End Role="Customer" EntitySet="Customers" />
-      <End Role="ContactDetail" EntitySet="ContactDetails" />
-    </AssociationSet>
     <AssociationSet Name="FK_CategoryProduct_Category" Association="SalesModel.Store.FK_CategoryProduct_Category">
       <End Role="Category" EntitySet="Categories" />
       <End Role="CategoryProduct" EntitySet="CategoryProduct" />
@@ -46,6 +42,10 @@
     <AssociationSet Name="FK_CategoryProduct_Product" Association="SalesModel.Store.FK_CategoryProduct_Product">
       <End Role="Product" EntitySet="Products" />
       <End Role="CategoryProduct" EntitySet="CategoryProduct" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerContactDetail" Association="SalesModel.Store.CustomerContactDetail">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="ContactDetail" EntitySet="ContactDetails" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="Customers">
@@ -113,6 +113,7 @@
     <Property Name="LinkedIn" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SkypeId" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="Customer_CustomerId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Addresses">
     <Key>
@@ -193,7 +194,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_CustomerContactDetail">
+  <Association Name="CustomerContactDetail">
     <End Role="Customer" Type="SalesModel.Store.Customers" Multiplicity="1" />
     <End Role="ContactDetail" Type="SalesModel.Store.ContactDetails" Multiplicity="*" />
     <ReferentialConstraint>
@@ -201,7 +202,7 @@
         <PropertyRef Name="CustomerId" />
       </Principal>
       <Dependent Role="ContactDetail">
-        <PropertyRef Name="CustomerId" />
+        <PropertyRef Name="Customer_CustomerId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -534,6 +535,14 @@
       </EndProperty>
       <EndProperty Name="Product">
         <ScalarProperty Name="ProductId" ColumnName="Products_ProductId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CustomerContactDetail" TypeName="SalesModel.CustomerContactDetail" StoreEntitySet="ContactDetails">
+      <EndProperty Name="Customer">
+        <ScalarProperty Name="CustomerId" ColumnName="Customer_CustomerId" />
+      </EndProperty>
+      <EndProperty Name="ContactDetail">
+        <ScalarProperty Name="ContactDetailId" ColumnName="ContactDetailId" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
