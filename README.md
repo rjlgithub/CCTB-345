@@ -7,4 +7,6 @@ Extra Resources
   - [Config File Settings](http://msdn.microsoft.com/en-gb/data/jj556606) - Updates to the information in the previous link
   - [EF Code-First DB Initialization Using Web.config](http://randypatterson.com/2011/11/ef-code-first-db-initialization-using-web-config/)
 - [Code-First Migrations](http://msdn.microsoft.com/en-us/data/jj591621)
+- [A Troubleshooing Guide for Entity Framework Connenctions and Migrations](http://odetocode.com/blogs/scott/archive/2012/08/15/a-troubleshooting-guide-for-entity-framework-connections-amp-migrations.aspx)
+  - **Known Bug in EF 6.1** [ProviderIncompatibleException](https://entityframework.codeplex.com/workitem/2138) - If you encounter this exception in your project, it could be caused by this bug. A fix for this will be released in EF 6.1.1.
 
