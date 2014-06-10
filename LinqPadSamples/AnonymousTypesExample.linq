@@ -14,5 +14,5 @@ select new
   Name = cust.CompanyName,
   OrderCount = cust.Orders.Count,
   OrderDates = from anOrder in cust.Orders
-  			   select anOrder.OrderDate
+  			   select anOrder.OrderDate 
 }
