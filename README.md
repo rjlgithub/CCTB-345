@@ -12,5 +12,6 @@ Extra Resources
 - [A Troubleshooing Guide for Entity Framework Connenctions and Migrations](http://odetocode.com/blogs/scott/archive/2012/08/15/a-troubleshooting-guide-for-entity-framework-connections-amp-migrations.aspx)
   - **Known Bug in EF 6.1** [ProviderIncompatibleException](https://entityframework.codeplex.com/workitem/2138) - If you encounter this exception in your project, it could be caused by this bug. A fix for this will be released in EF 6.1.1.
 
+  - www.asp.net/entityframework
 
 [Entity Framework 6.1 Tools[(http://www.microsoft.com/en-us/download/details.aspx?id=40762)
