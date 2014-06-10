@@ -1,6 +1,7 @@
 ﻿using NorthwindSystem.DataAccessLayer;
 using NorthwindSystem.Entities;
 using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,16 @@ namespace NorthwindSystem.BusinessLogicLayer
                 var result = context.Orders;
                 return result.ToList();
             }
+        }
+
+        public List<Region> GetRegions()
+        {
+            using (var context = new NWContext())
+            {
+                var result = context.Regions.Include(item => item.Territories).OrderBy(item => item.RegionDescription);
+                return result.ToList();
+            }
+
         }
 
     }
