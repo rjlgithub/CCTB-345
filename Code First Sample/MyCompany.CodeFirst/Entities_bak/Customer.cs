@@ -28,7 +28,7 @@ namespace MyCompany.CodeFirst.Entities
 
         //Navigation propertiies
         public virtual ICollection<Order> Orders { get; set; }
-        public virtual ContactDetail ContactDetail { get; set; }
+        //public virtual ContactDetail ContactDetail { get; set; }
 
     }
 }

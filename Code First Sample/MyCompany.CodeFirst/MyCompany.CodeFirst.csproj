@@ -46,16 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DataAccessLayer\SalesContext.cs" />
     <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\ContactDetail.cs" />
     <Compile Include="Entities\Customer.cs" />
-    <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\LineItem.cs" />
+    <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Migrations\201406101556245_AddTables.cs" />
+    <Compile Include="Migrations\201406101556245_AddTables.Designer.cs">
+      <DependentUpon>201406101556245_AddTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201406101556245_AddTables.resx">
+      <DependentUpon>201406101556245_AddTables.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

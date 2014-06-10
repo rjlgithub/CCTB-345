@@ -34,7 +34,7 @@ namespace MyCompanyCommandPrompt
                 var all = context.Customers;
                 foreach(Customer person in all)
                 {
-                    Console.WriteLine("{0} {1} - {2}", person.FirstName, person.LastName, person.CustomerID);
+                    Console.WriteLine("{0} {1} - {2}", person.FirstName, person.LastName, person.CustomerId);
                 }
 
             }
