@@ -14,4 +14,6 @@ Extra Resources
 
 - www.asp.net/entity-framework
 
+- www.linqpad.net
+
 [Entity Framework 6.1 Tools[(http://www.microsoft.com/en-us/download/details.aspx?id=40762)
